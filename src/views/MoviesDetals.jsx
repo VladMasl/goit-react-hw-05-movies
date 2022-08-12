@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
 import api from 'resource/Api';
 import FilmDetals from '../components/FilmDetals/FilmDetals';
 
 const MovieDetails = () => {
   const [data, setData] = useState({});
   const { movieId } = useParams();
-
+  const location = useLocation();
   useEffect(() => {
     const dataModification = object => {
       const genres = object.genres.map(genre => genre.name).join(', ');
@@ -43,10 +43,14 @@ const MovieDetails = () => {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <NavLink to={'cast'}>Cast</NavLink>
+            <NavLink to={'cast'} state={location.state}>
+              Cast
+            </NavLink>
           </li>
           <li>
-            <NavLink to={'reviews'}>Reviews</NavLink>
+            <NavLink to={'reviews'} state={location.state}>
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>

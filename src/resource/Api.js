@@ -34,7 +34,7 @@ class dataFetchApi {
     return respons.data;
   };
 
-//? Cast
+  //? Cast
 
   cast = async id => {
     const respons = await axios.get(
@@ -44,7 +44,7 @@ class dataFetchApi {
     return respons.data.cast;
   };
 
-  //? Reviews 
+  //? Reviews
 
   reviews = async id => {
     const respons = await axios.get(

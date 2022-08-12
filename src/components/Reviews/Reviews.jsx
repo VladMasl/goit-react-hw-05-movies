@@ -28,8 +28,8 @@ const Reviews = () => {
   if (data.length !== 0) {
     return (
       <ul className={s.list}>
-        {data.map((el, idx) => (
-          <li className={s.item} key={idx}>
+        {data.map((el, id) => (
+          <li className={s.item} key={id}>
             <p className={s.author}>
               <b>Author: </b> {el.author}
             </p>

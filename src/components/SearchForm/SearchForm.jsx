@@ -3,7 +3,7 @@ import api from '../../resource/Api';
 import s from './SearchForm.module.css';
 import PropTypes from 'prop-types';
 
-const SearchForm = ({setData, setSearchParams}) => {
+const SearchForm = ({ setData, setSearchParams }) => {
   const [query, setQuery] = useState('');
 
   const handleChangeInput = e => {
@@ -19,7 +19,7 @@ const SearchForm = ({setData, setSearchParams}) => {
       try {
         const response = await api.search(query, 1);
         setData(response.results);
-        setQuery('')
+        setQuery('');
       } catch (error) {
         console.log(error);
       }
@@ -36,7 +36,9 @@ const SearchForm = ({setData, setSearchParams}) => {
         onChange={handleChangeInput}
         className={s.input}
       />
-      <button type="submit" className={s.button}>SEARCH</button>
+      <button type="submit" className={s.button}>
+        SEARCH
+      </button>
     </form>
   );
 };

@@ -16,15 +16,16 @@ const Home = () => {
         setPage(1);
       }
     };
-    data()
-    
+    data();
+
     // eslint-disable-next-line
-  },[]);
-  return(
-<>
-<h1>Trending today</h1>
-<List data={data} />
-</>)
+  }, []);
+  return (
+    <>
+      <h1>Trending today</h1>
+      <List data={data} />
+    </>
+  );
 };
 
 export default Home;

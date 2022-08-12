@@ -4,7 +4,6 @@ import api from 'resource/Api';
 
 const Cast = () => {
   const [data, setData] = useState([]);
-
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -24,8 +23,8 @@ const Cast = () => {
 
   return (
     <ul>
-      {data.map(el => (
-        <li key={el.id}>
+      {data.map((el,idx) => (
+        <li key={el.id + idx}>
           {el['profile_path'] ? (
             <img
               src={`https://image.tmdb.org/t/p/w500${el['profile_path']}`}
