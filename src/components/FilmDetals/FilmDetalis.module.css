@@ -1,0 +1,40 @@
+.wrap {
+    display: flex;
+    color: #282828;
+  }
+
+  .link{
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 25px;
+    height: 50px;
+    margin: 20px;
+    border: 5px solid aqua;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgb(127, 255, 212);
+    color: #000;
+  }
+
+  .link:hover{
+    color: aliceblue;
+    background-color: aqua;
+  }
+  .img {
+    margin-right: 20px;
+  }
+  .info {
+    padding-top: 15px;
+    
+  }
+  .title {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  }
+  .year {
+    margin-left: 5px;
+  }
+  .subtitle {
+    margin: 10px;
+  }
