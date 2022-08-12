@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
+import { useEffect, useState, Suspense } from 'react';
+import { Outlet, useParams } from 'react-router-dom';
 import api from 'resource/Api';
 import FilmDetals from '../components/FilmDetals/FilmDetals';
+import AdditInfo from '../components/AdditInfo/AdditInfo';
 
 const MovieDetails = () => {
   const [data, setData] = useState({});
   const { movieId } = useParams();
-  const location = useLocation();
   useEffect(() => {
     const dataModification = object => {
       const genres = object.genres.map(genre => genre.name).join(', ');
@@ -39,22 +39,10 @@ const MovieDetails = () => {
   return (
     <>
       <FilmDetals data={data} />
-      <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
-            <NavLink to={'cast'} state={location.state}>
-              Cast
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'reviews'} state={location.state}>
-              Reviews
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-      <Outlet />
+      <AdditInfo />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
